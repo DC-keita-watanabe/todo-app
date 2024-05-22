@@ -33,7 +33,7 @@ public class MyController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public void create(@RequestBody Todo todo) {
 		System.out.println(todo);
-		todoService.addTodo(todo.getTaskName(), todo.getTaskDescription(), todo.getAssignPersonName(), todo.getEstimateHour());
+		todoService.addTodo(todo.getTaskName(), todo.getTaskDescription(), todo.getAssignPersonName());
 	}
 	
 	// POSTリクエストを処理し、タスクを削除する
