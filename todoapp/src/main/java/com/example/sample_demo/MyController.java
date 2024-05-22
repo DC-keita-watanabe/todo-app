@@ -44,7 +44,19 @@ public class MyController {
 		todoService.deleteTodo(id);
 	}
 	
+	@PostMapping("/edit")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public void edit(@RequestBody Todo todo) {
+		System.out.println(todo);
+		todoService.editTodo(todo);
+	}
 	
+	// POSTリクエストを処理し、filterされたTodoリストを返す
+	@PostMapping("/filter/{filterWord}")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public List<Todo> filter(@PathVariable String filterWord) {
+		return todoService.filterResult(filterWord);
+	}
 	
 	
 }
