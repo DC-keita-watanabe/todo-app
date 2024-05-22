@@ -17,17 +17,15 @@ public class Todo {
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private int id;
 
     private String taskName;
     private String taskDescription;
     private String assignPersonName;
-    private double estimateHour;
     
-    public Todo(String taskName, String taskDescription, String assignPersonName, double estimateHour) {
+    public Todo(String taskName, String taskDescription, String assignPersonName) {
         this.taskName = taskName;
         this.taskDescription = taskDescription;
         this.assignPersonName = assignPersonName;
-        this.estimateHour = estimateHour;
     }
 }
