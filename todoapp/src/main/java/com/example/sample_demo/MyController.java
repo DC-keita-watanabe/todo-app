@@ -23,9 +23,9 @@ public class MyController {
 	// GETリクエストを処理し、全てのToDoタスクを返す
 	@GetMapping("/api/tasks")
 	@CrossOrigin(origins = "http://localhost:3000")
-	public List<Todo> showTodos(Model model) {
+	public TodoResponse showTodos(Model model) {
 		List <Todo> todos = todoService.searchAll();
-		return todos;
+		return new TodoResponse(todos);
 	}
 	
 	//POSTリクエストを処理し、タスクを追加する
@@ -51,11 +51,13 @@ public class MyController {
 		todoService.editTodo(todo);
 	}
 	
+	
 	// POSTリクエストを処理し、filterされたTodoリストを返す
 	@PostMapping("/filter/{filterWord}")
 	@CrossOrigin(origins = "http://localhost:3000")
-	public List<Todo> filter(@PathVariable String filterWord) {
-		return todoService.filterResult(filterWord);
+	public TodoResponse filter(@PathVariable String filterWord) {
+		List <Todo> todos = todoService.filterResult(filterWord);
+		return new TodoResponse(todos);
 	}
 	
 	
